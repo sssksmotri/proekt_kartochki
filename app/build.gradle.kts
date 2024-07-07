@@ -45,6 +45,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.database)
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

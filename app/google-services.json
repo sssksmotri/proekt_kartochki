@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "48362008740",
+    "firebase_url": "https://kartochki-13775-default-rtdb.firebaseio.com",
+    "project_id": "kartochki-13775",
+    "storage_bucket": "kartochki-13775.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48362008740:android:4bd698a1ee8d5ccc83f631",
+        "android_client_info": {
+          "package_name": "com.example.kartochki"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQxcMANsg0SxqUw2-EFFnQ1dHuS7a0TWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
