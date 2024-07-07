@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginVertical="20dp"
+        android:layout_marginEnd="80dp"
+        android:background="#F3F1F1"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:outlineAmbientShadowColor="@color/black">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+            <ImageView
+                android:id="@+id/image_card"
+                android:layout_width="66dp"
+                android:layout_height="66dp"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="10dp"
+                android:layout_marginVertical="10dp"/>
+
+                <TextView
+                    android:id="@+id/card_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:textSize="21sp"
+                    android:textColor="#5D5D5E"
+                    android:text="Мафия"/>
+
+
+
+                <ImageView
+                    android:id="@+id/like_button"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right|top"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:src="@drawable/menu_like" />
+            </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="start|top"
+                android:layout_marginStart="25dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/people"/>
+            <TextView
+                android:id="@+id/people_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textSize="13sp"
+                android:textColor="#5D5D5E"
+                android:text="6+"/>
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginStart="50dp"
+                android:src="@drawable/cube"/>
+            <TextView
+                android:id="@+id/cube_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textSize="13sp"
+                android:textColor="#5D5D5E"
+                android:text="нет"/>
+            <ImageView
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginStart="50dp"
+                android:src="@drawable/time"/>
+            <TextView
+                android:id="@+id/time_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:textSize="13sp"
+                android:textColor="#5D5D5E"
+                android:text="20+"/>
+        </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
