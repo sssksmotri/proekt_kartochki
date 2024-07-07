@@ -3,6 +3,7 @@ package com.example.kartochki
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,24 +22,26 @@ class Search : AppCompatActivity() {
     private lateinit var cardAdapter: CardAdapter
     private lateinit var searchView: SearchView
     private lateinit var recyclerView: RecyclerView
+    private lateinit var bottomNavigationView: BottomNavigationView
     private val cardList = mutableListOf<Card>()
     private val db = FirebaseDatabase.getInstance().getReference("cards")
-    private lateinit var bottomNavigationView: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_search)
+
         bottomNavigationView = findViewById(R.id.navigation_bar)
-        cardAdapter = CardAdapter(cardList)
         searchView = findViewById(R.id.search_view)
         recyclerView = findViewById(R.id.recycler_view)
+        recyclerView.visibility = View.GONE
+
         bottomNavigationView.selectedItemId = R.id.menu_search
         recyclerView.layoutManager = LinearLayoutManager(this)
+        cardAdapter = CardAdapter(cardList)
         recyclerView.adapter = cardAdapter
 
         searchView.setIconifiedByDefault(false)
-
-        loadCardsFromFirebase()
         setupSearchView()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -46,6 +49,7 @@ class Search : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_main -> {
@@ -56,8 +60,9 @@ class Search : AppCompatActivity() {
                 else -> false
             }
         }
-    }
 
+        loadCardsFromFirebase()
+    }
 
     private fun loadCardsFromFirebase() {
         db.addValueEventListener(object : ValueEventListener {
@@ -65,9 +70,7 @@ class Search : AppCompatActivity() {
                 cardList.clear()
                 for (snapshot in dataSnapshot.children) {
                     val card = snapshot.getValue(Card::class.java)
-                    if (card != null) {
-                        cardList.add(card)
-                    }
+                    card?.let { cardList.add(it) }
                 }
                 cardAdapter.notifyDataSetChanged()
             }
@@ -85,11 +88,15 @@ class Search : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                if (newText.isNullOrEmpty()) {
+                    recyclerView.visibility = View.GONE // Скрываем RecyclerView при пустом запросе
+                } else {
+                    recyclerView.visibility = View.VISIBLE // Показываем RecyclerView при вводе запроса
+                }
                 cardAdapter.filter(newText.orEmpty())
                 return true
             }
         })
-
 
         searchView.setOnClickListener {
             searchView.isIconified = false

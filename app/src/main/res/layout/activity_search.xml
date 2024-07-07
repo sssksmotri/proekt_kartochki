@@ -24,14 +24,14 @@
         android:layout_below="@id/search_view"
         android:layout_above="@id/navigation_bar"
         android:layout_marginTop="8dp"
-        />
+        android:visibility="gone"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/lightgray"
+        android:background="#E1E1E1"
         app:menu="@menu/bottom_navigation"/>
 
 </RelativeLayout>

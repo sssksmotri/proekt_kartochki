@@ -1,12 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Главная"
+    <item
+        android:id="@+id/menu_main"
+        android:title="Главная"
         android:icon="@drawable/menu_main"
-        android:id="@+id/menu_main"/>
-    <item android:title="Поиск"
+        android:showAsAction="ifRoom"/>
+
+    <item
         android:id="@+id/menu_search"
-        android:icon="@drawable/menu_search"/>
-    <item android:title="Избранное"
+        android:title="Поиск"
+        android:icon="@drawable/menu_search"
+        android:showAsAction="ifRoom|collapseActionView"
+        android:actionViewClass="androidx.appcompat.widget.SearchView"/>
+
+    <item
         android:id="@+id/menu_like"
-        android:icon="@drawable/menu_like"/>
+        android:title="Избранное"
+        android:icon="@drawable/menu_like"
+        android:showAsAction="ifRoom"/>
 </menu>
